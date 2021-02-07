@@ -11,5 +11,8 @@ class Model
         string translateDoubleCharacter(char character);
 
     private:
+        string convertSingleCharacter(char character);
+        string determineCapitalization(string translation, char originalCharacter);
+        
 
 };
