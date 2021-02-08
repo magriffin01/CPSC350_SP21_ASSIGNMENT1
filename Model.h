@@ -12,7 +12,8 @@ class Model
 
     private:
         string convertSingleCharacter(char character);
+        string convertDoubleCharacter(char character);
         string determineCapitalization(string translation, char originalCharacter);
+        bool isVowel(char letter);
         
-
 };

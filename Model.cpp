@@ -24,15 +24,20 @@ string Model::translateSingleCharacter(char character)
 {
     string translation;
     translation = convertSingleCharacter(character);
+    translation = determineCapitalization(translation, character);
     return translation;
 }
 
 // Takes a single character as input and returns a string representing its encoding in Tutnese, Capitalization preserved
 string Model::translateDoubleCharacter(char character)
 {
-
+    string translation;
+    translation = convertDoubleCharacter(character);
+    translation = determineCapitalization(translation, character);
+    return translation;
 }
 
+// Takes a character and returns the appropriate conversion for a letter
 string Model::convertSingleCharacter(char character)
 {
     string conversion;
@@ -124,15 +129,34 @@ string Model::convertSingleCharacter(char character)
             break;
 
         default:
-            conversion = character;
+            conversion = tolower(character);
             break;
     }
-
-    conversion = determineCapitalization(conversion, character);
 
     return conversion;
 }
 
+// Takes a character and returns the appropriate conversion for a repeated letter
+string Model::convertDoubleCharacter(char character)
+{
+    string conversion;
+
+    if (isVowel(character))
+    {
+        conversion = "squat";
+    }
+    else
+    {
+        conversion = "squa";
+    }
+    
+    conversion = conversion + convertSingleCharacter(character);
+
+    return conversion;
+}
+
+/* Takes the lowercase translated string and original character, and either capitalizes the first character in the 
+    string or not based on the original character */
 string Model::determineCapitalization(string translation, char originalCharacter)
 {
     if (isupper(originalCharacter))
@@ -146,3 +170,27 @@ string Model::determineCapitalization(string translation, char originalCharacter
     }
 }
 
+// Returns true if the letter is a vowel and false if not
+bool Model::isVowel(char letter)
+{
+    switch (tolower(letter))
+    {
+        case 'a':
+            return true;
+        
+        case 'e':
+            return true;
+
+        case 'i':
+            return true;
+
+        case 'o':
+            return true;
+
+        case 'u':
+            return true;
+
+        default:
+            return false;
+    }
+}
