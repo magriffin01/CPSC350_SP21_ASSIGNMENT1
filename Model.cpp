@@ -10,13 +10,13 @@ using namespace std;
 Model::Model()
 {
     // FIXME: Delete when project completed
-    cout << "Constructor called" << endl;
+    cout << "Model constructor called" << endl;
 }
 
 Model::~Model()
 {
     // FIXME: Delete when project completed
-    cout << "Destructor called" << endl;
+    cout << "Model destructor called" << endl;
 }
 
 // Takes a single character as input and return a string representing its encoding in Tutnese, Capitalization Preserved
