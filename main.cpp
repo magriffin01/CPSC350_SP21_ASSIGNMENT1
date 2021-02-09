@@ -27,8 +27,11 @@ int main(int argc, char **argv)
     // cout << translator.translateEnglishSentence("I am Mark Griffin!!!!!!") << endl;
 
     // Tests FileProcessor class
+    // FileProcessor fileProcessor;
+    // fileProcessor.processFile("input.txt", "output.txt");
+
     FileProcessor fileProcessor;
-    fileProcessor.processFile("input.txt", "output.txt");
+    fileProcessor.processFile(argv[1], argv[2]);
 
     return 0;
 }
