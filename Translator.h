@@ -1,5 +1,8 @@
+#ifndef TRANSLATOR_H
+#define TRANSLATOR_H
+
 #include <string>
-#include "Model.cpp"
+#include "Model.h"
 
 using namespace std;
 
@@ -13,6 +16,10 @@ class Translator
 
     private:
         bool isDoubleCharacter(int index, string word);
+        bool hasNoMoreSpaces(int index);
+        void updateWhitespaceIndices(int& indexOfPreviousWhitespace, int& indexOfNextWhitespace, string sentence);
         Model model;
 
 };
+
+#endif

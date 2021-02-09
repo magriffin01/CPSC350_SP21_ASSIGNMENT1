@@ -145,7 +145,7 @@ string Model::convertDoubleCharacter(char character)
     {
         conversion = "squat";
     }
-    else
+    else if (isalpha(character))
     {
         conversion = "squa";
     }

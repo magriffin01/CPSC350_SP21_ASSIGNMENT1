@@ -46,7 +46,56 @@ string Translator::translateEnglishWord(string englishWord)
 // Takes a single string representing a single English sentence and returns a string representing Tutnese translation
 string Translator::translateEnglishSentence(string englishSentence)
 {
+    /* Take in sentence, isolate word by checking for whitespace, translate word, append whitespace,
+        add to sentence, repeat until done with sentence, return word with newline character */
+    string translatedSentence;
+    string substringOfSentence;
+    int indexOfNextWhitespace = englishSentence.find(' ');
+    int indexOfPreviousWhitespace = 0;
+    
+    /* Get the substring of the sentence from the first letter to the first space, translate that word, add it to the sentence
+        update the indices to the next instance of a space and check to see if there are no more spaces, if so end translation */
+    do {
+        substringOfSentence = englishSentence.substr(indexOfPreviousWhitespace, indexOfNextWhitespace - indexOfPreviousWhitespace);
 
+        translatedSentence = translatedSentence + translateEnglishWord(substringOfSentence);
+        
+        updateWhitespaceIndices(indexOfPreviousWhitespace, indexOfNextWhitespace, englishSentence);
+        
+        if (hasNoMoreSpaces(indexOfNextWhitespace))
+        {
+            translatedSentence.append(" ");
+            substringOfSentence = englishSentence.substr(indexOfPreviousWhitespace, englishSentence.size() - indexOfPreviousWhitespace);
+            translatedSentence = translatedSentence + translateEnglishWord(substringOfSentence);
+            translatedSentence.append("\n");
+        }
+        else
+        {
+            translatedSentence.append(" ");
+        }
+    } while (indexOfNextWhitespace != string::npos);
+
+    return translatedSentence;    
+}
+
+// Takes in two indices and a sentence and updates them for spaces
+void Translator::updateWhitespaceIndices(int& indexOfPreviousWhitespace, int& indexOfNextWhitespace, string sentence)
+{
+    indexOfPreviousWhitespace = indexOfNextWhitespace + 1;
+    indexOfNextWhitespace = sentence.find(' ', indexOfPreviousWhitespace);
+}
+
+// Takes in an index and returns true of false if the index is npos, indicating no spaces
+bool Translator::hasNoMoreSpaces(int index)
+{
+    if (index == string::npos)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // Takes an index, and the original word and returns true if consecutive characters are the same, otherwise false
@@ -68,6 +117,5 @@ bool Translator::isDoubleCharacter(int index, string word)
     {
         return false;
     }
-    
 }
 

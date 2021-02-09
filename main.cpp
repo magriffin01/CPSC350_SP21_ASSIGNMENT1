@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Translator.cpp"
+#include "Translator.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     // Tests Translator class
     Translator translator;
 
-    cout << translator.translateEnglishWord("walk") << endl;
+    cout << translator.translateEnglishSentence("I am Mark Griffin!!!!!!") << endl;
 
     return 0;
 }
