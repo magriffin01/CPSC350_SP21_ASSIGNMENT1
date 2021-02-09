@@ -14,10 +14,16 @@ class FileProcessor
         FileProcessor();
         ~FileProcessor();
         void processFile(string inputFile, string outputFile);
+        // For testing purposes
+        void printEnglishText();
 
     private:
+        void openFile(string inputFile);
+        void readFile();
+        void closeFile(string inputFile);
         Translator translator;
         ifstream inputStream;
+        string englishText;
 };
 
 #endif

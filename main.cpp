@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
     // Tests FileProcessor class
     FileProcessor fileProcessor;
-
+    fileProcessor.processFile("input.txt", "kek.txt");
 
     return 0;
 }
