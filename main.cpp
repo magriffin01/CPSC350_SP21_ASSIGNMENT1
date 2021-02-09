@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Translator.h"
+#include "FileProcessor.h"
 
 using namespace std;
 
@@ -22,9 +22,13 @@ int main(int argc, char **argv)
     // cout << model.translateDoubleCharacter('.') << endl;
 
     // Tests Translator class
-    Translator translator;
+    // Translator translator;
 
-    cout << translator.translateEnglishSentence("I am Mark Griffin!!!!!!") << endl;
+    // cout << translator.translateEnglishSentence("I am Mark Griffin!!!!!!") << endl;
+
+    // Tests FileProcessor class
+    FileProcessor fileProcessor;
+
 
     return 0;
 }
