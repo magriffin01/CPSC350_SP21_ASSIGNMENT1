@@ -18,12 +18,17 @@ class FileProcessor
         void printEnglishText();
 
     private:
-        void openFile(string inputFile);
-        void readFile();
-        void closeFile(string inputFile);
+        void openInputFile(string inputFile);
+        void readInputFile();
+        void closeInputFile(string inputFile);
+        void openOutputFile(string outputFile);
+        void writeOutputFile();
+        void closeOutputFile(string outputFile);
         Translator translator;
         ifstream inputStream;
+        ofstream outputStream;
         string englishText;
+        string tutneseText;
 };
 
 #endif

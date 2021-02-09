@@ -21,21 +21,26 @@ FileProcessor::~FileProcessor()
 // Takes a string for the input file and output file, reads the english file, and writes the translation to the output file
 void FileProcessor::processFile(string inputFile, string outputFile)
 {
-    openFile(inputFile);
-    readFile();
-    closeFile(inputFile);
+    openInputFile(inputFile);
+    readInputFile();
+    closeInputFile(inputFile);
     // Delete after testing
     printEnglishText();
+
+    openOutputFile(outputFile);
+    writeOutputFile();
+    closeOutputFile(outputFile);
 }
 
 // FIXME: For testing purposes only
 void FileProcessor::printEnglishText()
 {
     cout << englishText << endl;
+    cout << translator.translateEnglishSentence(englishText) << endl;
 }
 
-// Reads the input file and puts the text into a string
-void FileProcessor::readFile()
+// Reads the input file and puts the english text into a string
+void FileProcessor::readInputFile()
 {
     string line;
     englishText = "";
@@ -55,8 +60,15 @@ void FileProcessor::readFile()
     }
 }
 
+// Writes to the output file from the tutneseText string
+void FileProcessor::writeOutputFile()
+{
+    tutneseText = translator.translateEnglishSentence(englishText);
+    outputStream << tutneseText << flush;
+}
+
 // Takes a string for the inputFile and attempts to open it
-void FileProcessor::openFile(string inputFile)
+void FileProcessor::openInputFile(string inputFile)
 {
     // FIXME: Delete once project completed
     cout << "Attempting to open " << inputFile << endl;
@@ -73,11 +85,38 @@ void FileProcessor::openFile(string inputFile)
     }
 }
 
+// Takes a string for the outputFile and attempts to open it
+void FileProcessor::openOutputFile(string outputFile)
+{
+    // FIXME: Delete once project completed
+    cout << "Attempting to open " << outputFile << endl;
+
+    outputStream.open(outputFile);
+
+    if (!outputStream.is_open())
+    {
+        cout << "Could not open " << outputFile << endl;
+    }
+    else
+    {
+        cout << "Successfully opened " << outputFile << endl;
+    }
+}
+
 // Takes a string for the inputFile and attempts to close it
-void FileProcessor::closeFile(string inputFile)
+void FileProcessor::closeInputFile(string inputFile)
 {
     // FIXME: Delete once project completed
     cout << "Closing " << inputFile << endl;
 
     inputStream.close();
+}
+
+// Takes a string for the outputFile and attempts to close it
+void FileProcessor::closeOutputFile(string outputFile)
+{
+    // FIXME: Delete once project completed
+    cout << "Closing " << outputFile << endl;
+
+    outputStream.close();
 }
