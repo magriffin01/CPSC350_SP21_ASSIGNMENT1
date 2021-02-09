@@ -109,7 +109,7 @@ bool Translator::isDoubleCharacter(int index, string word)
         return false;
     }
 
-    if (word.at(index) == word.at(nextIndex))
+    if (tolower(word.at(index)) == tolower(word.at(nextIndex)))
     {
         return true;
     }
