@@ -1,3 +1,11 @@
+/*
+# Name: Mark Griffin
+# ID Number: 2340502
+# Email: magriffin@chapman.edu
+# Course: CPSC350-01
+# Assignment: Assignment 1
+*/
+
 #ifndef FILEPROCESSOR_H
 #define FILEPROCESSOR_H
 
@@ -14,9 +22,7 @@ class FileProcessor
         FileProcessor();
         ~FileProcessor();
         void processFile(string inputFile, string outputFile);
-        // For testing purposes
-        void printEnglishText();
-
+        
     private:
         void openInputFile(string inputFile);
         void readInputFile();
