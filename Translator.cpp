@@ -1,6 +1,3 @@
-// FIXME: Delete once project completed
-#include <iostream>
-
 #include <string>
 #include "Translator.h"
 
@@ -8,14 +5,12 @@ using namespace std;
 
 Translator::Translator()
 {
-    // FIXME: Delete once project completed
-    cout << "Translator constructor called" << endl;
+    
 }
 
 Translator::~Translator()
 {
-    // FIXME: Delete once project completed
-    cout << "Translator destructor called" << endl;
+    
 }
 
 // Takes a single string representing a single English word and returns a string representing the Tutnese translation

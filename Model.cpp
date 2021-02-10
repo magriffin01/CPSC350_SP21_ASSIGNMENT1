@@ -1,6 +1,3 @@
-// FIXME: delete iostream when done
-#include <iostream>
-
 #include <cctype>
 #include <string>
 #include "Model.h"
@@ -9,14 +6,12 @@ using namespace std;
 
 Model::Model()
 {
-    // FIXME: Delete when project completed
-    cout << "Model constructor called" << endl;
+    
 }
 
 Model::~Model()
 {
-    // FIXME: Delete when project completed
-    cout << "Model destructor called" << endl;
+
 }
 
 // Takes a single character as input and return a string representing its encoding in Tutnese, Capitalization Preserved
